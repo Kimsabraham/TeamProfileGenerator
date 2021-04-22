@@ -126,7 +126,33 @@ const promptManager = () => {
   });
 };
 
+const promptEngineer = () => {
+  inquirer.prompt(engineerQuestion).then((answer) => {
+    teamList.push(
+      new Engineer(
+        answer.engineername,
+        answer.engineerid,
+        answer.engineeremail,
+        answer.githubname
+      )
+    );
+    promptSelection();
+  });
+};
 
+const promptIntern = () => {
+  inquirer.prompt(internQuestion).then((answer) => {
+    teamList.push(
+      new Intern(
+        answer.internname,
+        answer.internid,
+        answer.internemail,
+        answer.schoolname
+      )
+    );
+    promptSelection();
+  });
+};
 
 const createTeamHTML = () => {
   fs.writeFile(outputPath, render(teamList), (err) => {
