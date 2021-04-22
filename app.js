@@ -8,6 +8,8 @@ const fs = require("fs");
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
+const render = require("./lib/renderTeam");
+const Choices = require("inquirer/lib/objects/choices");
 
 
 // array of questions
@@ -123,5 +125,13 @@ const promptManager = () => {
     promptSelection();
   });
 };
+
+const createTeamHTML = () => {
+  fs.writeFile(outputPath, render(teamList), (err) => {
+    if (err) throw err;
+    console.log("File saved at " + outputPath);
+  });
+};
+
 
 promptSelection();
