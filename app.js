@@ -107,7 +107,7 @@ const promptSelection = () => {
         promptIntern();
         break;
       default:
-        generateHtml();
+        createTeamHTML();
     }
   });
 };
@@ -126,12 +126,13 @@ const promptManager = () => {
   });
 };
 
+
+
 const createTeamHTML = () => {
   fs.writeFile(outputPath, render(teamList), (err) => {
     if (err) throw err;
     console.log("File saved at " + outputPath);
   });
 };
-
 
 promptSelection();
