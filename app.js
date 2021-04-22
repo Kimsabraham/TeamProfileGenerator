@@ -1,7 +1,13 @@
 // All dependcies and necessary imports
+const Manager = require("./lib/manager");
+const Engineer = require("./lib/engineer");
+const Intern = require("./lib/intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
+
+const OUTPUT_DIR = path.resolve(__dirname, "output");
+const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 
 // array of questions
@@ -84,3 +90,38 @@ const list = [
     message: "Please select your new hire.",
   },
 ];
+
+// function that prompts which questions will be asked depending on user selection
+const promptSelection = () => {
+  inquirer.prompt(list).then((answer) => {
+    switch (answer.EmployeeType) {
+      case "Manager":
+        promptManager();
+        break;
+      case "Engineer":
+        promptEngineer();
+        break;
+      case "Intern":
+        promptIntern();
+        break;
+      default:
+        generateHtml();
+    }
+  });
+};
+
+const promptManager = () => {
+  inquirer.prompt(managerQuestion).then((answer) => {
+    teamList.push(
+      new Manager(
+        answer.managername,
+        answer.managerid,
+        answer.manageremail,
+        answer.officenumber
+      )
+    );
+    promptSelection();
+  });
+};
+
+promptSelection();
