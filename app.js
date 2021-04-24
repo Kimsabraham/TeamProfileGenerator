@@ -1,7 +1,8 @@
-// All dependcies and necessary imports
+// team profiles
 const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
+// node modules
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
@@ -111,7 +112,7 @@ const promptSelection = () => {
     }
   });
 };
-
+// takes user answer with correct prompt
 const promptManager = () => {
   inquirer.prompt(managerQuestion).then((answer) => {
     teamList.push(
