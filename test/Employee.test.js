@@ -1,6 +1,6 @@
-const Employee = require("../lib/employee");
+const Employee = require("../lib/Employee");
 
-test("Can instantiate employee instance", () => {
+test("Employee instance works", () => {
   const e = new Employee();
   expect(typeof e).toBe("object");
 });
@@ -12,7 +12,7 @@ test("name passes with constructor", () => {
 });
 
 test("id passes with constructor", () => {
-  const pass = true;
+  const pass = 100;
   const e = new Employee("Bob", pass);
   expect(e.id).toBe(pass);
 });
@@ -30,19 +30,19 @@ test("getName argument passes()", () => {
 });
 
 test("getId arguemnt passes()", () => {
-  const pass = true;
+  const pass = 100;
   const e = new Employee("Bob", pass);
   expect(e.getId()).toBe(pass);
 });
 
 test("getEmail argument passes()", () => {
-  const pass = "fakegmail@gmail.com";
+  const pass = "fakeemail@gmail.com";
   const e = new Employee("Bob", 1, pass);
   expect(e.getEmail()).toBe(pass);
 });
 
-test('getRole() returns "Employee"', () => {
-  const pass = "Employee";
+test('getRole() "employee"', () => {
+  const pass = "employee";
   const e = new Employee("Bob", 1, "fakeemail@gmail.com");
   expect(e.getRole()).toBe(pass);
 });
