@@ -1,7 +1,7 @@
 # Read Me Generator
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/undefined/undefined)
 # Description
-This app takes users inputs and puts them into HTML cards depending on the class the user has selected. Using Jest we could constanlty test the behaviour of each class. 
+This app takes users inputs and puts them into HTML cards depending on the class the user has selected. Using Jest we could constantly test the behaviour of each class. 
 # Table of Contents 
 * [Installation](#installation)
 * [Usage](#usage)
